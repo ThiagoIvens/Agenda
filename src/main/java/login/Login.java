@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import thiago.agenda.Main;
@@ -12,7 +13,7 @@ import thiago.agenda.Main;
 public class Login extends Application {
 	private Button btnLogin;
 	private TextField txtUsername;
-	private TextField txtPassword;
+	private PasswordField txtPassword;
 	private Label lblLogin;
 
 	public static void main(String[] args) {
@@ -38,7 +39,7 @@ public class Login extends Application {
 		txtUsername.setMinWidth(150);
 		txtUsername.setPrefWidth(150);
 		
-		txtPassword = new TextField();
+		txtPassword = new PasswordField();
 		txtPassword.setLayoutX(10);
 		txtPassword.setLayoutY(70);
 		txtPassword.setMaxWidth(150);
@@ -49,8 +50,7 @@ public class Login extends Application {
 		btnLogin.setLayoutX(167);
 		btnLogin.setLayoutY(30);
 		btnLogin.setOnMouseClicked(e -> login(stage));
-
-
+		
 		pane.getChildren().add(lblLogin);
 		pane.getChildren().add(btnLogin);
 		pane.getChildren().add(txtUsername);
