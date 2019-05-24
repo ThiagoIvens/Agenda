@@ -10,6 +10,7 @@ public class textos {
 	//title
 	public static final String appTitle = "Inicio";
 	public static final String appTitleObj = "Criar um Novo Objetivo";
+	public static final String appTitleObjAnd = "Objetivos em Andamento";
 
 	//buttons
 	public static final String btnOk = "Ok";
@@ -26,7 +27,7 @@ public class textos {
 	public static final String lblLogin = "Login";
 	public static final String lblMain = "Bem Vindo!";
 	public static final String lblescolha = "Clique em uma aba para ser redirecionado:";
-	public static final String lblObjetivos = "Criar Objetivo";
+	public static final String lblObjetivos = "Nome do Objetivo";
 	public static final String lblObjData = "Data para Termino do Objetivo: ";
 	
 	

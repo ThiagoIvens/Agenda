@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import thiago.agenda.Main;
+import thiago.agenda.textos;
 
 public class Login extends Application {
 	private Button btnLogin;
@@ -28,7 +29,7 @@ public class Login extends Application {
 		stage.setScene(scene);
 
 
-		lblLogin = new Label(thiago.agenda.textos.lblLogin);
+		lblLogin = new Label(textos.lblLogin);
 		lblLogin.setLayoutX(10);
 		lblLogin.setLayoutY(10);
 
@@ -46,18 +47,19 @@ public class Login extends Application {
 		txtPassword.setMinWidth(150);
 		txtPassword.setPrefWidth(150);
 		
-		btnLogin = new Button(thiago.agenda.textos.btnLogin);
-		btnLogin.setLayoutX(167);
-		btnLogin.setLayoutY(30);
+		btnLogin = new Button(textos.btnLogin);
+		btnLogin.setLayoutX(200);
+		btnLogin.setLayoutY(40);
 		btnLogin.setOnMouseClicked(e -> login(stage));
+		
 		
 		pane.getChildren().add(lblLogin);
 		pane.getChildren().add(btnLogin);
 		pane.getChildren().add(txtUsername);
 		pane.getChildren().add(txtPassword);
+		
 
-
-		stage.setTitle(thiago.agenda.textos.appTitle);
+		stage.setTitle(textos.appTitle);
 		stage.setResizable(false);
 
 		stage.show();
@@ -67,7 +69,7 @@ public class Login extends Application {
 
 		if (txtUsername.getText().isEmpty()) {
 			try {
-				new Error(thiago.agenda.textos.ErrorUser).start(new Stage());
+				new Error(textos.ErrorUser).start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -76,7 +78,7 @@ public class Login extends Application {
 
 		if(!txtUsername.getText().equals("admin")) {
 			try {
-				new Error(thiago.agenda.textos.ErrorUser).start(new Stage());
+				new Error(textos.ErrorUser).start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -84,7 +86,7 @@ public class Login extends Application {
 		}
 		if (txtPassword.getText().isEmpty()) {
 			try {
-				new Error(thiago.agenda.textos.ErrorPassword).start(new Stage());
+				new Error(textos.ErrorPassword).start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -93,7 +95,7 @@ public class Login extends Application {
 		
 		if (!txtPassword.getText().equals("admin")) {
 			try {
-				new Error(thiago.agenda.textos.ErrorPassword).start(new Stage());
+				new Error(textos.ErrorPassword).start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
