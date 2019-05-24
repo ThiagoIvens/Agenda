@@ -11,6 +11,7 @@ public class textos {
 	public static final String appTitle = "Inicio";
 	public static final String appTitleObj = "Criar um Novo Objetivo";
 	public static final String appTitleObjAnd = "Objetivos em Andamento";
+	public static final String appTitleObjCon = "Objetivos Concluidos";
 
 	//buttons
 	public static final String btnOk = "Ok";
