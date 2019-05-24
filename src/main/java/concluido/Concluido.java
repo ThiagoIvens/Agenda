@@ -32,11 +32,4 @@ public class Concluido extends Application{
 
 		stage.show();
 	}
-	
-	public static CheckBox NewCheckBox(CheckBox cb) {
-		// TODO Auto-generated method stub
-		if(cb!=null)
-			cb = new CheckBox();
-		return cb;
-	}
 }

@@ -10,10 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import thiago.agenda.Main;
 import thiago.agenda.textos;
 
-public class Login extends Application {
+public class Login extends Application implements UserPass{
 	private Button btnLogin;
 	private TextField txtUsername;
 	private PasswordField txtPassword;
@@ -62,6 +63,7 @@ public class Login extends Application {
 		
 		
 		AquaFx.style();
+		AquaFx.styleStage(stage, StageStyle.DECORATED);
 		
 
 		stage.setTitle(textos.appTitle);
@@ -71,25 +73,18 @@ public class Login extends Application {
 	}
 
 	private void login(Stage stage) {
-
-		if (txtUsername.getText().isEmpty()) {
+		boolean user = UserPass.User(txtUsername.getText());
+		if (txtUsername.getText().isEmpty() || user == false) {
 			try {
 				new Error(textos.ErrorUser).start(new Stage());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			return;
-		}
-
-		if(!txtUsername.getText().equals(UserPass.user)) {
-			try {
-				new Error(textos.ErrorUser).start(new Stage());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return;
-		}
-		if (txtPassword.getText().isEmpty()) {
+		}		
+		
+		boolean pass = UserPass.User(txtPassword.getText());
+		if (txtPassword.getText().isEmpty() || pass == false) {
 			try {
 				new Error(textos.ErrorPassword).start(new Stage());
 			} catch (Exception e) {
@@ -97,16 +92,7 @@ public class Login extends Application {
 			}
 			return;
 		}
-		
-		if (!txtPassword.getText().equals(UserPass.pass)) {
-			try {
-				new Error(textos.ErrorPassword).start(new Stage());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return;
-		}
-		
+
 		try {
 			new Main(txtUsername.getText()).start(new Stage());
 			stage.close();

@@ -1,7 +1,8 @@
 package coisasParaFazer;
 
 import java.util.ArrayList;
-import javafx.application.*;
+
+import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,7 +19,11 @@ public class CoisasFazer extends Application {
 //	private TextField txtMesTermino;
 //	private TextField txtAnoTermino;
 
-	static ArrayList<String> lista = new ArrayList<String>();
+	private ArrayList<String> lista;
+
+	public CoisasFazer() {
+		lista = new ArrayList<String>();
+	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -62,30 +67,27 @@ public class CoisasFazer extends Application {
 //		txtAnoTermino.setPrefWidth(50);
 
 		btnCriar = new Button(textos.btnCriar);
-		String item = txtNome.getText();
-		btnCriar.setOnMouseClicked(e -> lista.add(item));
-		
+
+		btnCriar.setOnMouseClicked(e -> btnCriar());
+
 		VBox layout = new VBox(10);
 		layout.setPadding(new Insets(20, 20, 20, 20));
 		layout.getChildren().addAll(lblObjetivos, txtNome, btnCriar);
-		
+
 		Scene scene = new Scene(layout, 800, 600);
 		stage.setScene(scene);
 		stage.setTitle(textos.appTitleObj);
 		stage.setResizable(false);
-		
-		
+
 		stage.show();
-		for(int i = 0;i<lista.size();i++) {
-			System.out.println(lista.get(i));
-		}
 	}
 
-	public static ArrayList<String> rl() {
-		ArrayList<String> teste = lista;
-		
-		return teste;
-
+	public ArrayList<String> getLista() {
+		return lista;
 	}
 
+	public void btnCriar() {
+		lista.add(txtNome.getText());
+		txtNome.clear();
+	}
 }

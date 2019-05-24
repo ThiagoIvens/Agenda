@@ -3,7 +3,8 @@ package thiago.agenda;
 import ObjAndamento.ObjAndamento;
 import calendario.Calender;
 import coisasParaFazer.CoisasFazer;
-import javafx.application.*;
+import concluido.Concluido;
+import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
@@ -17,6 +18,7 @@ public class Main extends Application {
 	private Button btnObjetivos;
 	private Button btnObjAndamento;
 	private Button btnConcluido;
+	private CoisasFazer coisasFazer;
 
 	public Main(String username) {
 		this.username = username;
@@ -51,13 +53,13 @@ public class Main extends Application {
 				e1.printStackTrace();
 			}
 		});
-
+		coisasFazer = new CoisasFazer();
 		// btn Objetivos
 		btnObjetivos = new Button(textos.btnObjetivos);
-		
+
 		btnObjetivos.setOnMouseClicked(e -> {
 			try {
-				new CoisasFazer().start(new Stage());
+				coisasFazer.start(new Stage());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -68,7 +70,7 @@ public class Main extends Application {
 		btnObjAndamento = new Button(textos.btnObjAndamento);
 		btnObjAndamento.setOnMouseClicked(e -> {
 			try {
-				new ObjAndamento().start(new Stage());
+				new ObjAndamento(coisasFazer.getLista()).start(new Stage());
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -77,17 +79,19 @@ public class Main extends Application {
 
 		// btn Objetivos Concluidos
 		btnConcluido = new Button(textos.btnConcluido);
+		btnConcluido.setOnMouseClicked(e -> {
+			try {
+				new Concluido().start(new Stage());
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
 		btnBar.getButtons().addAll(btnCalender, btnObjetivos, btnObjAndamento, btnConcluido);
 		btnBar.setLayoutX(10);
 		btnBar.setLayoutY(70);
-		
-		
-		
-		
-		
-		
-		btnBar.getStylesheets().add("style1/button-styles.css");
+
 		// pane
 		pane.getChildren().add(lblMain);
 		pane.getChildren().add(lblescolha);

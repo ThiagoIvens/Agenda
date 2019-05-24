@@ -1,5 +1,6 @@
 package ObjAndamento;
 
+import java.util.List;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -9,17 +10,16 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import thiago.agenda.textos;
 
-import java.util.ArrayList;
-
-import coisasParaFazer.CoisasFazer;
-import concluido.*;
-
 public class ObjAndamento extends Application {
+	private List<String> lista;
+
+	public ObjAndamento(List<String> lista) {
+		this.lista = lista;
+	}
 
 	@Override
 	public void start(Stage stage) throws Exception {
 
-		ArrayList<String> lista = CoisasFazer.rl();
 //		lista.add("thiago");
 		VBox layout = new VBox(10);
 		layout.setPadding(new Insets(20, 20, 20, 20));
@@ -33,14 +33,6 @@ public class ObjAndamento extends Application {
 			layout.getChildren().add(check);
 			i++;
 		}
-		
-//#############################################################################################################
-		CheckBox cb = check;
-		if(cb.isSelected()) {
-			Concluido.NewCheckBox(cb);
-		}
-		
-//#############################################################################################################		
 
 		Scene scene = new Scene(layout, 800, 600);
 		stage.setScene(scene);
