@@ -19,6 +19,7 @@ public class Main extends Application {
 	private Button btnObjAndamento;
 	private Button btnConcluido;
 	private CoisasFazer coisasFazer;
+	private ObjAndamento objAndamento;
 
 	public Main(String username) {
 		this.username = username;
@@ -31,6 +32,8 @@ public class Main extends Application {
 		Scene scene = new Scene(pane);
 		stage.setScene(scene);
 
+		
+		
 		// labels
 		Label lblMain = new Label(textos.lblMain + " " + username);
 		lblMain.setLayoutX(10);
@@ -40,8 +43,14 @@ public class Main extends Application {
 		lblescolha.setLayoutX(10);
 		lblescolha.setLayoutY(40);
 
+		
+		
 		// buttons
 		ButtonBar btnBar = new ButtonBar();
+		
+		
+		
+		
 		// btn Calendario
 		btnCalender = new Button(textos.btnCalender);
 
@@ -49,11 +58,15 @@ public class Main extends Application {
 			try {
 				new Calender().start(new Stage());
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
+		
+		
+		
 		coisasFazer = new CoisasFazer();
+		
+		
 		// btn Objetivos
 		btnObjetivos = new Button(textos.btnObjetivos);
 
@@ -61,29 +74,28 @@ public class Main extends Application {
 			try {
 				coisasFazer.start(new Stage());
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
 
+		
+		objAndamento = new ObjAndamento();
 		// btn Objetivos em Andamento
 		btnObjAndamento = new Button(textos.btnObjAndamento);
 		btnObjAndamento.setOnMouseClicked(e -> {
 			try {
 				new ObjAndamento(coisasFazer.getLista()).start(new Stage());
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
-
+		
 		// btn Objetivos Concluidos
 		btnConcluido = new Button(textos.btnConcluido);
 		btnConcluido.setOnMouseClicked(e -> {
 			try {
-				new Concluido().start(new Stage());
+				new Concluido(objAndamento.getLista2()).start(new Stage());
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
