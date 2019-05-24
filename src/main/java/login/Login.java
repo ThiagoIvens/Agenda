@@ -81,7 +81,7 @@ public class Login extends Application {
 			return;
 		}
 
-		if(!txtUsername.getText().equals("admin")) {
+		if(!txtUsername.getText().equals(UserPass.user)) {
 			try {
 				new Error(textos.ErrorUser).start(new Stage());
 			} catch (Exception e) {
@@ -98,7 +98,7 @@ public class Login extends Application {
 			return;
 		}
 		
-		if (!txtPassword.getText().equals("admin")) {
+		if (!txtPassword.getText().equals(UserPass.pass)) {
 			try {
 				new Error(textos.ErrorPassword).start(new Stage());
 			} catch (Exception e) {
