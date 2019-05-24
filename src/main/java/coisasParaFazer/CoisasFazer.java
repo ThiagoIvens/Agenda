@@ -1,9 +1,6 @@
 package coisasParaFazer;
 
 import java.util.ArrayList;
-
-import org.aerofx.AeroFX;
-
 import javafx.application.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -77,7 +74,6 @@ public class CoisasFazer extends Application {
 		stage.setTitle(textos.appTitleObj);
 		stage.setResizable(false);
 		
-		AeroFX.style();
 		
 		stage.show();
 		for(int i = 0;i<lista.size();i++) {
@@ -86,9 +82,9 @@ public class CoisasFazer extends Application {
 	}
 
 	public static ArrayList<String> rl() {
+		ArrayList<String> teste = lista;
 		
-		
-		return lista;
+		return teste;
 
 	}
 
