@@ -19,17 +19,14 @@ public class ObjAndamento extends Application {
 	public void start(Stage stage) throws Exception {
 
 		ArrayList<String> lista = CoisasFazer.rl();
+//		lista.add("thiago");
 		VBox layout = new VBox(10);
 		layout.setPadding(new Insets(20, 20, 20, 20));
-		
-		lista.add("thiago");
-		Label lbl = new Label("Em Andamento: ");
+		Label lbl = new Label("Objetivos em andamento: ");
 		layout.getChildren().add(lbl);
 		int i = 0;
-		String item = null;
-		while (i <= lista.size()) {
-			item = lista.get(i);
-			CheckBox check = new CheckBox(item);
+		while (i < lista.size()) {
+			CheckBox check = new CheckBox(lista.get(i));
 			check.setIndeterminate(false);
 			layout.getChildren().add(check);
 			i++;

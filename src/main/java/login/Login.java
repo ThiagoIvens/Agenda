@@ -3,7 +3,6 @@ package login;
 import javafx.scene.control.TextField;
 
 import com.aquafx_project.AquaFx;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -63,6 +62,7 @@ public class Login extends Application {
 		
 		
 		AquaFx.style();
+		
 
 		stage.setTitle(textos.appTitle);
 		stage.setResizable(false);
